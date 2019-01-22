@@ -1,0 +1,18 @@
+{##
+#
+#   @locationFilter
+#
+#   Location filter
+#
+#   @param {Object} data - Main object.
+#
+##}
+
+{% macro locationFilter(data) %}
+  {% set pageLang = data.pageLang %}
+
+  <div class="form-item form-item--checkbox locations__filters-item js-location-category-{{ data.index if data.index }}">
+    <input type="checkbox" id="category-{{ data.index if data.index }}" name="category-{{ data.index if data.index }}" data-phrase="{{ data.item.titleSl if data.item.titleSl }}">
+    <label for="category-{{ data.index if data.index }}">{{ data.item.titleSl if pageLang === 'sl' else data.item.titleEn }}</label>
+  </div>
+{% endmacro %}

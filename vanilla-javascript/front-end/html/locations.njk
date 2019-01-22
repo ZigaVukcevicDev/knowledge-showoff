@@ -1,0 +1,161 @@
+{##
+#
+#   @locations
+#
+#   Locations
+#
+#   @param {Object} data - Main object.
+#
+##}
+
+{% from "components/icon/icon.njk" import icon, iconGradient %}
+{% from "components/button/button.njk" import button %}
+{% from "components/form/form.njk" import input %}
+{% from "components/locations/location-filter.njk" import locationFilter %}
+
+{% set className = 'locations' %}
+
+{% macro locations(data) %}
+  {% set pageLang = data.fromGlobal.pageLang %}
+
+  <div class="subheader -empty"></div>
+  <div class="{{ className }} relative">
+    <!-- List -->
+    <div class="{{ className }}__list-container">
+      <ul class="{{ className }}__list no-bullet js-locations-list" data-locations-list-predefined=""></ul>
+      <div class="text-center">
+        <p class="{{ className }}__search-no-results -is-hidden js-locations-search-no-results" data-bp-type="simple" data-bp-id="el57993">{{ el57993 if el57993 else data.fromGlobal.localization[pageLang].locations.noResults }}</p>
+
+        {{ button({
+          text: data.fromGlobal.localization[pageLang].locations.showMore,
+          attrs: {
+            class: className + '__search-more -is-hidden -small js-locations-search-more',
+            'data-offset': '0'
+          }
+        }) }}
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="{{ className }}__search js-locations-search-input">
+      {{ input('text', '', 'search', 'search', data.fromGlobal.localization[pageLang].locations.searchPaymentSpot, false, false, false, 'js-locations-search-input') }}
+
+      <span class="{{ className }}__search-icon">
+        {{ icon({ name: 'search' }) }}
+      </span>
+
+      <button class="js-locations-filters-open">{{ icon({ name: 'filters' }) }}</button>
+    </div>
+
+    <!-- Map -->
+    <div class="{{ className }}__map js-map" data-locations-predefined=""></div>
+
+    <!-- Zoom notice -->
+    <div class="{{ className }}__zoom-notice -is-hidden js-zoom-notice" data-bp-type="simple" data-bp-id="el10336">
+      {{ el10336 if el10336 else data.fromGlobal.localization[pageLang].locations.zoomNotice }}
+    </div>
+
+    <!-- Info -->
+    <div class="{{ className }}__info -is-hidden js-location-info">
+      <button class="{{ className }}__info-close js-location-info-close">
+        {{ icon({ name: 'close' }) }}
+      </button>
+
+      <div class="{{ className }}__info-image-container">
+        <img
+          class="{{ className }}__info-image js-location-info-image"
+          src="https://via.placeholder.com/40/ffffff/999999/?text=m" alt="" />
+      </div>
+
+      <span class="{{ className }}__info-title js-location-info-title">title</span>
+      <span class="{{ className }}__info-category js-location-info-category">category</span>
+      <!-- Address street and city -->
+      <span class="{{ className }}__info-global-desc">
+        <span class="{{ className }}__info-icon">
+          <span>{{ icon({ name: 'pin-outline' }) }}</span>
+        </span>
+        <span class="{{ className }}__info-address-street">
+          <span class="js-location-info-address-street">addressStreet</span>,&nbsp;
+          <span class="js-location-info-address-city">addressCity</span>
+        </span>
+      </span>
+      <!-- Phone numbers -->
+      <span class="{{ className }}__info-global-desc">
+        <span class="{{ className }}__info-icon">
+          <span>{{ icon({ name: 'phone' }) }}</span>
+        </span>
+        <span class="{{ className }}__info-phone-numbers js-location-info-phone-numbers">phoneNumbers</span>
+      </span>
+      <!-- Href -->
+      <span class="{{ className }}__info-global-desc -reduced-margin-bottom">
+        <span class="{{ className }}__info-icon">
+          <span>{{ icon({ name: 'web' }) }}</span>
+        </span>
+        <span class="{{ className }}__info-href js-location-info-href">href</span>
+      </span>
+      <!-- Mail -->
+      <span class="{{ className }}__info-global-desc -reduced-margin-bottom">
+        <span class="{{ className }}__info-icon">
+          <span>{{ icon({ name: 'mail' }) }}</span>
+        </span>
+        <span class="{{ className }}__info-href js-location-info-email">email</span>
+      </span>
+      <!-- Desc-->
+      <span class="{{ className }}__info-global-desc -reduced-margin-bottom">
+        <span class="{{ className }}__info-icon">
+          <span>{{ icon({ name: 'home' }) }}</span>
+        </span>
+        <span class="{{ className }}__info-desc js-location-info-desc">desc</span>
+      </span>
+      <!-- Additional info -->
+      <i class="{{ className }}__info-additional-info" data-bp-type="simple" data-bp-id="el3765">{{ el3765 if el3765 else 'Ponudnik ne odgovarja, če na plačilnem mestu kljub pogodbi o poslovanju z Moneto, Monete ne uporabljajo.' }}</i>
+    </div>
+    <!-- / Info -->
+
+    <!-- Filters -->
+    <div class="{{ className }}__filters -is-hidden js-locations-filters">
+      <button class="{{ className }}__info-close js-locations-filters-close">
+        {{ icon({ name: 'close' }) }}
+      </button>
+      <span class="{{ className }}__filters-title" data-bp-type="simple" data-bp-id="el35855">{{ el35855 if el35855 else data.fromGlobal.localization[pageLang].locations.filterIt }}</span>
+
+      {% if data.fromGlobal.areFromCollections %}
+        {% if data.fromGlobal.locCategories %}
+          {% for item in data.fromGlobal.locCategories.items %}
+            {{ locationFilter({
+              item: item.payload,
+              index: loop.index,
+              pageLang: pageLang
+            }) }}
+          {% endfor %}
+        {% else %}
+          <p>Please add data for collection Locations categories.</p>
+        {% endif %}
+      {% else %}
+        {% for item in data.fromGlobal.locCategoriesPredefined %}
+          {{ locationFilter({
+            item: item,
+            index: loop.index,
+            pageLang: pageLang
+          }) }}
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="{{ className }}__filters-actions js-locations-actions -is-hidden">
+        {{ button({
+          text: data.fromGlobal.localization[pageLang].locations.filtersSubmit,
+          attrs: {
+            'class': '-white -small -no-shadow -border js-locations-filters-submit',
+            'data-query': ''
+          }
+        }) }}
+        {{ button({
+          text: data.fromGlobal.localization[pageLang].locations.filtersClean,
+          attrs: {
+            'class': '-white -small -no-shadow js-locations-filters-reset'
+          }
+        }) }}
+    </div>
+    <!-- / Filters -->
+  </div>
+{% endmacro %}

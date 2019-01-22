@@ -1,0 +1,34 @@
+{##
+#
+#   @locationsExposed
+#
+#   Locations exposed
+#
+#   @param {Object} data - Main object.
+#
+##}
+
+{% set className = 'locations__list-item' %}
+
+{% macro locationsExposed(data) %}
+  <li class="{{ className }} js-locations-list-item">
+    <a href="{{ '/placilna-mesta' if data.fromGlobal.pageLang === 'sl' else '/en/points-of-sale' }}?gMapOverrideWithGeolocation=false&gMapCenterLat={{ data.item.lat }}&gMapCenterLng={{ data.item.lng }}" class="{{ className }}-button" title="{{ data.item.title if data.item.title }}">
+      <div class="{{ className }}-image-container">
+        {% if data.item.image %}
+          <img class="{{ className }}-image" src="{{ data.item.image }}" alt="">
+        {% endif %}
+      </div>
+      <span>
+        <span class="{{ className }}-title">
+          {{ data.item.title if data.item.title }}
+        </span>
+        <span class="{{ className }}-address-street">
+          {{ data.item.addressStreet if data.item.addressStreet }}, {{ data.item.addressCity if data.item.addressCity }}
+        </span>
+      </span>
+      <svg class="icon icon--open {{ className }}-icon" aria-hidden="true">
+        <use xlink:href="/static/images/icons/symbol-defs.svg#icon-open"></use>
+      </svg>
+    </a>
+  </li>
+{% endmacro %}

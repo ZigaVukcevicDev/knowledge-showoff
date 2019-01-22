@@ -1,0 +1,656 @@
+/**
+ *
+ * Locations
+ *
+ */
+
+$map-height-small: 264px;
+$map-height-medium: 380px;
+$locations-search-height-small: 74px;
+$locations-list-width-large: 400px;
+$locations-list-width-xlarge: 490px;
+
+.locations {
+  &__search {
+    top: $header-height-small;
+    left: 0;
+    right: 0;
+    position: fixed;
+    padding: 16px 23px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-grey-light;
+    height: 74px;
+
+    &-icon {
+      position: absolute;
+      top: 24px;
+      right: 65px;
+
+      .icon {
+        font-size: 14px;
+      }
+    }
+
+    div {
+      width: 100%;
+      padding-right: 15px;
+    }
+
+    input {
+      font-size: 14px;
+      width: 100%;
+      padding-top: 10px;
+      padding-right: 30px;
+    }
+
+    button {
+      @extend %button-reset;
+
+      .icon {
+        &:hover {
+          color: $color-red;
+        }
+      }
+    }
+
+    &-no-results {
+      &.-is-hidden {
+        display: none !important;
+      }
+    }
+
+    &-more {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      outline: none;
+
+      &.-is-hidden {
+        display: none !important;
+      }
+    }
+  }
+
+  &__map {
+    position: fixed !important;
+    top: calc(#{$header-height-small + $locations-search-height-small});
+    left: 0;
+    display: block;
+    width: 100%;
+    height: $map-height-small;
+
+    @include breakpoint(medium down) {
+      &::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        box-shadow: 0 2px 60px 0 rgba(0, 0, 0, 0.10);
+        z-index: 10;
+      }
+    }
+  }
+
+  &__list {
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 17px;
+    margin-bottom: 0;
+
+    &-container {
+      position: fixed;
+      top: calc(#{$header-height-small} + #{$locations-search-height-small} + #{$map-height-small});
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: scroll;
+    }
+
+    &-item {
+      width: 100%;
+      background-color: $color-white;
+      border: 1px solid lighten($color-grey, 30);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border, box-shadow 0.2s ease;
+
+      &:hover {
+        border: 1px solid $color-red;
+        box-shadow: 20px 20px 60px 0 rgba(0, 0, 0, 0.10);
+      }
+    }
+
+    &-item-link,
+    &-item-button {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: $color-black;
+      font-size: 12px;
+      letter-spacing: 1.12px;
+      padding-left: 0;
+      padding-right: 15px;
+      font-weight: $semibold;
+      text-align: left;
+      text-decoration: none !important;
+    }
+
+    &-item-image-container {
+      flex: 0 0 0; // flex: 0 0 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 15px 16px;
+
+      & + span {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+    }
+
+    &-item-image {
+      max-width: 100%;
+      display: none;
+    }
+
+    &-item-title,
+    &-item-address-street {
+      margin-right: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    &-item-title {
+      line-height: 1.5;
+    }
+
+    &-item-address-street {
+      color: $color-grey;
+      font-size: 11px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      letter-spacing: 1px;
+    }
+
+    &-item-icon {
+      flex: 0 0 13px;
+      color: $color-red;
+      font-size: 13px;
+      transform: rotate(-90deg) !important;
+    }
+
+    &.-home {
+      padding-left: 0;
+      padding-right: 0;
+
+      li {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      @include breakpoint(large) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        li {
+          flex: 0 0 calc(50% - 14px);
+          width: calc(50% - 14px);
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        li:nth-child(odd) {
+          margin-right: 14px;
+        }
+
+        li:nth-child(even) {
+          margin-left: 14px;
+        }
+
+        li .icon {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &__info,
+  &__filters {
+    position: fixed;
+    display: block;
+    top: $header-height-small;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $color-white-dark;
+    padding: 15px 20px;
+    overflow-y: scroll;
+
+    &.-is-hidden {
+      display: none;
+    }
+
+    &-close {
+      @extend %button-reset;
+      position: absolute;
+      top: 28px;
+      right: 20px;
+      font-size: 13px;
+      color: $color-black;
+
+      &:hover {
+        color: $color-red;
+      }
+    }
+  }
+
+  &__info {
+    &-image-container {
+      width: 10px;
+      height: 40px;
+      margin-bottom: 23px;
+    }
+
+    &-image {
+      display: none;
+      max-width: 100%;
+    }
+
+    &-title {
+      display: block;
+      font-size: 16px;
+      font-weight: $semibold;
+      line-height: 32px;
+      margin-bottom: 5px;
+    }
+
+    &-category {
+      display: block;
+      font-size: 14px;
+      font-weight: $semibold;
+      line-height: 24px;
+      color: $color-grey;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $color-grey-mercury;
+      margin-bottom: 20px;
+    }
+
+    &-global-desc {
+      display: flex;
+      margin-bottom: 25px;
+
+      &.-reduced-margin-bottom {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-icon {
+      flex: 0 0 30px;
+
+      .icon {
+        font-size: 18px;
+        color: $color-red;
+        margin-top: 3px;
+        margin-right: 14px;
+      }
+    }
+
+    &-address-street,
+    &-phone-numbers {
+      padding-top: 2px;
+      font-size: 14px;
+      font-weight: $semibold;
+    }
+
+    &-href {
+      a {
+        padding-top: 2px;
+        font-size: 14px;
+        font-weight: $semibold;
+        text-decoration: underline;
+        word-wrap: break-word;
+      }
+    }
+
+    &-desc {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    &-additional-info {
+      display: block;
+      color: $color-grey;
+      font-size: 12px;
+      line-height: 20px !important;
+      margin-top: 25px;
+      margin-left: 34px;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__filters {
+    padding-top: 24px;
+    margin-bottom: 64px;
+
+    &-title {
+      font-size: 16px;
+      font-weight: $semibold;
+      display: block;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid $color-grey-mercury;
+    }
+
+    &-item {
+      margin-bottom: 20px;
+
+      label {
+        text-transform: uppercase;
+        font-size: 14px !important;
+        font-weight: $semibold;
+        padding-left: 45px !important;
+        padding-top: 2px !important;
+        letter-spacing: 1px;
+      }
+    }
+
+    &-actions {
+      background-color: $color-grey-light;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 64px;
+      padding: 12px 20px 0;
+
+      button {
+        background-color: transparent !important;
+        margin-bottom: 0;
+        outline: none;
+
+        &:last-child {
+          float: right;
+        }
+      }
+
+      &.-is-hidden {
+        display: none;
+      }
+    }
+  }
+
+  &__zoom-notice {
+    position: fixed;
+    top: calc(#{$header-height-small} + #{$locations-search-height-small} + #{$map-height-small} - 50px);
+    left: calc(50% - 135px);
+    right: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 10;
+    font-size: 12px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+    font-weight: $semibold;
+    letter-spacing: 0.5px;
+    max-width: 270px;
+
+    &.-is-hidden {
+      display: none;
+    }
+  }
+
+  @include breakpoint(medium) {
+    &__map {
+      height: $map-height-medium;
+    }
+
+    &__list {
+      &-container {
+        top: calc(#{$header-height-small} + #{$locations-search-height-small} + #{$map-height-medium});
+      }
+    }
+
+    &__info,
+    &__filters {
+      padding-left: 25px;
+    }
+
+    &__zoom-notice {
+      left: calc(50% - 150px);
+      max-width: 300px;
+      top: calc(#{$header-height-small} + #{$locations-search-height-small} + #{$map-height-medium} - 50px);
+    }
+  }
+
+  @include breakpoint(large) {
+    &__map {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: $locations-list-width-large;
+      width: auto;
+      height: auto;
+    }
+
+    &__list {
+      margin-top: 0;
+      padding-left: 40px;
+      padding-right: 25px;
+
+      &-container {
+        position: fixed;
+        top: calc(#{$header-height-large} + 109px);
+        left: 0;
+        bottom: 0;
+        margin-top: 0;
+        width: $locations-list-width-large;
+        overflow-y: scroll;
+      }
+
+      &-item {
+        margin-bottom: 16px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      &-item-image {
+        &-container {
+          width: 0;
+          height: 40px;
+          flex: 0 0 0;
+          text-align: center;
+        }
+      }
+
+      &-item-title {
+        font-size: 13px;
+      }
+
+      &-item-address-street {
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-size: 11px;
+      }
+    }
+
+    &__search {
+      top: $header-height-large;
+      left: 40px;
+      right: auto;
+      width: calc(#{$locations-list-width-large} - 65px);
+      background-color: $color-white-dark;
+      border-bottom: 1px solid $color-grey-mercury;
+      padding-top: 35px;
+      padding-bottom: 20px;
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 15px;
+      height: auto;
+
+      input {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-right: 40px;
+        font-size: 16px;
+      }
+
+      &-icon {
+        top: 52px;
+        right: 55px;
+      }
+
+      .icon--filters {
+        font-size: 20px;
+      }
+
+      div {
+        padding-right: 20px;
+      }
+    }
+
+    &__info,
+    &__filters {
+      top: $header-height-large;
+      width: $locations-list-width-large;
+      right: auto;
+      padding-top: 30px;
+      padding-left: 40px;
+
+      &-image-container {
+        width: 56px;
+        height: 56px;
+        flex: 0 0 56px;
+      }
+
+      &-close {
+        top: 50px;
+
+        .icon {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &__info {
+      &-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      &-category {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      &-icon {
+        margin-top: 2px;
+
+        .icon {
+          position: relative;
+          margin-right: 28px;
+        }
+      }
+
+      &-global-desc {
+        margin-bottom: 30px;
+
+        &.-reduced-margin-bottom {
+          margin-bottom: 30px;
+        }
+      }
+
+      &-address-street,
+      &-address-city,
+      &-phone-numbers,
+      &-href a,
+      &-email a,
+      &-desc {
+        font-size: 16px;
+      }
+
+      &-additional-info {
+        margin-left: 44px;
+      }
+    }
+
+    &__filters {
+      padding-top: 40px;
+      margin-bottom: 120px;
+
+      &-title {
+        font-size: 24px;
+      }
+
+      &-actions {
+        padding-top: 35px;
+        padding-left: 40px;
+        height: 120px;
+        right: auto;
+        width: $locations-list-width-large;
+
+        button {
+          padding-left: 30px !important;
+          padding-right: 30px !important;
+          padding-top: 19px !important;
+          padding-bottom: 19px !important;
+        }
+
+        button:last-child {
+          padding-right: 0 !important;
+        }
+      }
+    }
+
+    &__zoom-notice {
+      top: auto;
+      left: calc(50% - 150px + #{$locations-list-width-large} / 2);
+      right: auto;
+      bottom: 30px;
+      min-width: 300px;
+    }
+
+    @include breakpoint(xlarge) {
+      &__map {
+        left: $locations-list-width-xlarge;
+      }
+
+      &__search {
+        width: calc(#{$locations-list-width-xlarge} - 65px);
+      }
+
+      &__info,
+      &__filters {
+        width: $locations-list-width-xlarge;
+      }
+
+      &__filters {
+        &-actions {
+          width: $locations-list-width-xlarge;
+        }
+      }
+
+      &__list {
+        &-container {
+          width: $locations-list-width-xlarge;
+        }
+      }
+
+      &__zoom-notice {
+        left: calc(50% - 150px + #{$locations-list-width-xlarge} / 2);
+      }
+    }
+  }
+}
