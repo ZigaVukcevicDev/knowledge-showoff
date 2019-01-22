@@ -1,8 +1,6 @@
 # Knowledge show off
 
-Here you will find a few samples of my code, they represent my current skills and knowledge.
-
-
+Here you will find a few samples of my code, they represent my current skills and knowledge (posted Jan 2019).
 
 ## Vanilla JavaScript
 
@@ -21,7 +19,7 @@ a) Front-end
 - Show single sale point details
 - Handle pin icons
 
-See [files](href)
+See [files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/front-end).
 
 b) Back-end
 
@@ -30,9 +28,7 @@ b) Back-end
 - Get all points based on given center coordinates and radius
 - Combine output within search/filters and geo location
 
-See [files](href)
-
-
+See [files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/back-end).
 
 ## Vue.js
 
