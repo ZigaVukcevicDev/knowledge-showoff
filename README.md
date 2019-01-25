@@ -4,7 +4,7 @@ Here you will find a few samples of my code, they represent my current skills an
 
 ## React
 
-Can be seen at [Sportradar - Player total distance](https://widgets.sir.sportradar.com/demo#ngs-player-nfl-player-totalDistanceSeason)
+&rarr; Can be seen at [Sportradar - Player total distance](https://widgets.sir.sportradar.com/demo#ngs-player-nfl-player-totalDistanceSeason)
 
 ### Task: create component showing player's total distance
 
