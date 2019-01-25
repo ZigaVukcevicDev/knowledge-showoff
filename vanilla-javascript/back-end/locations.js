@@ -5,7 +5,7 @@ import redis from 'redis';
 import georedis from 'georedis';
 import fetch from 'node-fetch';
 
-// it will load the right one based on .env NODE_ENV setting
+// It will load the right one based on .env NODE_ENV setting
 require('dotenv').config()
 let config = require('config');
 

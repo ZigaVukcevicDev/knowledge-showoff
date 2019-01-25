@@ -1,0 +1,166 @@
+@import '../common/variables';
+
+.sr-bb {
+  .sr-player-total-distance-content {
+    &__container {
+      display: flex;
+      align-items: stretch;
+
+      &-stats {
+        flex: 1 1 50%;
+        position: relative;
+      }
+
+      &-chart {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__tabs {
+      vertical-align: top;
+    }
+
+    &__title {
+      font-weight: $font-weight-semi-bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &__chart {
+      padding-top: 11px;
+      padding-right: 22px;
+      padding-bottom: 15px;
+    }
+
+    &__legend {
+        width: 115px;
+    }
+
+    &__legend-distance-line2 {
+        margin-top: 2px;
+        font-size: $font-size-18;
+    }
+
+    &__legend-distance-line3-outside {
+      margin-top: 1px;
+    }
+
+    &__legend-contribution-line2 {
+      margin-top: 4px;
+      font-size: $font-size-18;
+    }
+
+    &__data {
+      position: absolute;
+      left: 175px;
+    }
+
+    &__stats {
+      margin-top: 12px;
+    }
+
+    &__crest {
+      position: absolute;
+      left: 245px;
+    }
+  }
+}
+
+.sr-bb.sr-player-total-distance-content-small .sr-player-total-distance-content {
+  &__container {
+    flex-direction: column;
+
+    &-stats {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+    }
+  }
+
+  &__heading {
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  &__title {
+    font-size: $font-size-xs;
+  }
+
+  &__chart {
+    padding-right: 7px;
+  }
+
+  &__legend {
+    margin-left: 11px;
+  }
+
+  &__legend-frame {
+    margin-top: 6px;
+    margin-bottom: 11px;
+  }
+
+  &__data {
+    top: 76px;
+  }
+
+  &__crest {
+    width: 48px;
+    height: 48px;
+    bottom: 10px;
+  }
+}
+
+.sr-bb.sr-player-total-distance-content-large .sr-player-total-distance-content {
+  &__container {
+    flex-direction: row;
+
+    &-chart {
+        height: 100%;
+    }
+  }
+
+  &__heading {
+    flex-direction: column;
+    padding-top: 14px;
+    padding-right: 18px;
+    padding-left: 18px;
+    height: 88px;
+  }
+
+  &__title {
+    font-size: $font-size-s;
+  }
+
+  &__chart {
+    padding-right: 3px;
+  }
+
+  &__legend {
+    margin-left: 14px;
+  }
+
+  &__legend-frame {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &__data {
+    top: 72px;
+  }
+
+  &__crest {
+    width: 58px;
+    height: 58px;
+    bottom: 15px;
+  }
+}

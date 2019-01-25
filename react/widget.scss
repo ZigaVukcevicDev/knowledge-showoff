@@ -1,0 +1,14 @@
+@import '../common/playerMetrics/variables';
+
+.sr-bb {
+  .sr-player-total-distance-season, .sr-player-total-distance-game {
+    &__container {
+      padding-top: $widget-padding-left;
+    }
+
+    &__title {
+      padding-left: $widget-padding-left;
+      padding-right: $widget-padding-right;
+    }
+  }
+}
