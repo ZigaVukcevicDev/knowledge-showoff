@@ -2,6 +2,22 @@
 
 Here you will find a few samples of my code, they represent my current skills and knowledge (posted Jan 2019).
 
+## React
+
+Can be seen at [Sportradar - Player total distance](https://widgets.sir.sportradar.com/demo#ngs-player-nfl-player-totalDistanceSeason)
+
+### Task: create component showing player's total distance
+
+Front-end
+
+- Create component which will show NFL player's total distance
+- Component should live update on new API data
+- Integrate other common made components
+
+See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/react).
+
+You can also check out other [NFL components](https://widgets.sir.sportradar.com/demo#nfl) we made with team.
+
 ## Vanilla JavaScript
 
 Can be seen at [Moneta - points of sale](https://www.moneta.si/en/points-of-sale)
@@ -17,9 +33,9 @@ a) Front-end
 - Show/hide points if search or filters are enabled
 - Show point of sales in sidebar, use Show more
 - Show single sale point details
-- Handle pin icons
+- Handle custom pin icons
 
-See [files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/front-end).
+See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/front-end).
 
 b) Back-end
 
@@ -28,16 +44,23 @@ b) Back-end
 - Get all points based on given center coordinates and radius
 - Combine output within search/filters and geo location
 
-See [files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/back-end).
+See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/back-end).
 
 ## Vue.js
 
-// TODO
+Can be seen at [Vue.js tutorial](https://premade.vue-js-tutorials.be-codified.com/dist-components/course-list-component/)
 
-## React
+### Task: create sortable and filterable table
 
-// TODO
+Front-end
 
+- Table should be lively sortable by columns
+- Table should be lively filterable
+- Ability to add item
+- Ability to edit item
+- Ability to delete item
 
+See [code files](XXX).
 
-You can find more info at [be-codified.com](http://wwww.be-codified.com).
+---
+You can find more info about me at [be-codified.com](http://wwww.be-codified.com).
