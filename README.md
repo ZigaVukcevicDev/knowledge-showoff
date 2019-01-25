@@ -4,14 +4,14 @@ Here you will find a few samples of my code, they represent my current skills an
 
 ## React
 
-&rarr; Can be seen at [Sportradar - Player total distance](https://widgets.sir.sportradar.com/demo#ngs-player-nfl-player-totalDistanceSeason)
+&rarr; Can be seen at [Sportradar - Player's total distance](https://widgets.sir.sportradar.com/demo#ngs-player-nfl-player-totalDistanceSeason)
 
 ### Task: create component showing player's total distance
 
 Front-end
 
 - Create component which will show NFL player's total distance
-- Component should live update on new API data
+- Component should live update on new data from REST API
 - Integrate other common made components
 
 &rarr; See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/react).
@@ -31,7 +31,7 @@ a) Front-end
 - Fetch points on map boundaries change (pan or zoom)
 - Implement search and filters
 - Show/hide points if search or filters are enabled
-- Show point of sales in sidebar, use Show more
+- Show points of sales in sidebar, use Show more
 - Show single sale point details
 - Handle custom pin icons
 
