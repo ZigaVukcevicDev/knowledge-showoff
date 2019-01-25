@@ -14,13 +14,13 @@ Front-end
 - Component should live update on new API data
 - Integrate other common made components
 
-See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/react).
+&rarr; See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/react).
 
 You can also check out other [NFL components](https://widgets.sir.sportradar.com/demo#nfl) we made with team.
 
 ## Vanilla JavaScript
 
-Can be seen at [Moneta - points of sale](https://www.moneta.si/en/points-of-sale)
+&rarr; Can be seen at [Moneta - points of sale](https://www.moneta.si/en/points-of-sale)
 
 ### Task: show points of sale on Google map
 
@@ -35,7 +35,7 @@ a) Front-end
 - Show single sale point details
 - Handle custom pin icons
 
-See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/front-end).
+&rarr; See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/front-end).
 
 b) Back-end
 
@@ -44,11 +44,11 @@ b) Back-end
 - Get all points based on given center coordinates and radius
 - Combine output within search/filters and geo location
 
-See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/back-end).
+&rarr; See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vanilla-javascript/back-end).
 
 ## Vue.js
 
-Can be seen at [Vue.js tutorial](https://premade.vue-js-tutorials.be-codified.com/dist-components/course-list-component/)
+&rarr; Can be seen at [Vue.js tutorial](https://premade.vue-js-tutorials.be-codified.com/dist-components/course-list-component/)
 
 ### Task: create sortable and filterable table
 
@@ -60,7 +60,7 @@ Front-end
 - Ability to edit item
 - Ability to delete item
 
-See [code files](XXX).
+&rarr; See [code files](XXX).
 
 ---
 You can find more info about me at [be-codified.com](http://wwww.be-codified.com).
