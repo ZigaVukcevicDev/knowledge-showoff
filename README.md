@@ -63,4 +63,4 @@ Front-end
 &rarr; See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vue-js).
 
 ---
-You can find more info about me at [be-codified.com](http://wwww.be-codified.com).
+You can find more info about me at [be-codified.com](http://www.be-codified.com).
