@@ -60,7 +60,7 @@ Front-end
 - Ability to edit item
 - Ability to delete item
 
-&rarr; See [code files](XXX).
+&rarr; See [code files](https://github.com/be-codified/knowledge-showoff/tree/master/vue-js).
 
 ---
 You can find more info about me at [be-codified.com](http://wwww.be-codified.com).
