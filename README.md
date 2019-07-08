@@ -1,6 +1,6 @@
 # Knowledge show off
 
-Here you will find a few samples of my code, they represent my current skills and knowledge (posted Jan 2019).
+Here you will find a few samples of my code, they represent my current skills and knowledge (posted Jun 2019).
 
 ## React
 
@@ -20,7 +20,7 @@ You can also check out other [NFL components](https://widgets.sir.sportradar.com
 
 ## Vanilla JavaScript
 
-&rarr; Can be seen at [Moneta - points of sale](https://www.moneta.si/en/points-of-sale)
+&rarr; Can be seen at Moneta - points of sale (Update: Sorry, page has been rebranded and no loger exists.)
 
 ### Task: show points of sale on Google map
 
